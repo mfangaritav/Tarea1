@@ -1,9 +1,12 @@
-x-P.png : graficas.py UpwindGodunov_step_5.dat
+x-P.png : graficas.py UpwindGodunov_step_5.dat exact.dat
 	python graficas.py
 
 UpwindGodunov_step_5.dat : shocktube1.x
 	./shocktube1.x
-	
+
+exact.dat : exact.py
+	python exact.py
+
 shocktube1.x : shocktube1.c
 	gcc shocktube1.c -o shocktube1.x -lm
 
